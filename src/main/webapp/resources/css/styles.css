@@ -1,0 +1,21 @@
+.text-style{
+    font-family: "Apple Braille", serif;
+    color: white;
+}
+.background-color{
+    background-color: #09302f;
+}
+.button{
+    text-decoration: none;
+    padding: 3px 5px;
+    background: transparent;
+    border: white 2px solid;
+    border-radius: 3px;
+    transition-delay: 0.05s;
+    color: white;
+    font-family: "Apple Braille", serif;
+}
+.button:hover {
+    background: #051c14;
+    cursor: pointer;
+}
