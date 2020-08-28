@@ -19,3 +19,9 @@
     background: #051c14;
     cursor: pointer;
 }
+input {
+    width: 200px;
+}
+.input-field{
+    width: 200px;
+}
