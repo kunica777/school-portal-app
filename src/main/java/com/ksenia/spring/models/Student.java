@@ -1,15 +1,13 @@
 package com.ksenia.spring.models;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Locale;
 
-@PropertySource(value="classpath:countries.properties")
 public class Student{
 
-    private final String title = "student";
     private String firstName;
     private String lastName;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -18,58 +16,22 @@ public class Student{
     private String login;
     private String password;
     private String email;
-    private String country;
+    private String countryCode;
     private String city;
     private String street;
     private String flatOrHouseNumber;
     private String postcode;
 
     //TODO: fix import of country options into spring (below)
-    @Value("#{${countries}}")
     private LinkedHashMap<String, String> countryOptions;
 
     public Student() {
-
-        //HARDCODED WAY:populate some random country options
-        //countryOptions = new LinkedHashMap<>();
-        /*countryOptions.put("Austria", "Austria");
-        countryOptions.put("Belgium","Belgium");
-        countryOptions.put("Belarus","Belarus");
-        countryOptions.put("Brazil","Brazil");
-        countryOptions.put("Bulgaria","Bulgaria");
-        countryOptions.put("Canada","Canada");
-        countryOptions.put("China","China");
-        countryOptions.put("Colombia","Colombia");
-        countryOptions.put("Cyprus","Cyprus");
-        countryOptions.put("Czechia","Czechia");
-        countryOptions.put("Denmark","Denmark");
-        countryOptions.put("Egypt","Egypt");
-        countryOptions.put("Estonia","Estonia");
-        countryOptions.put("Finland","Finland");
-        countryOptions.put("France","France");
-        countryOptions.put("Germany","Germany");
-        countryOptions.put("Greece","Greece");
-        countryOptions.put("India","India");
-        countryOptions.put("Italy","Italy");
-        countryOptions.put("Latvia","Latvia");
-        countryOptions.put("Lithuania","Lithuania");
-        countryOptions.put("Mexico","Mexico");
-        countryOptions.put("Netherlands","Netherlands");
-        countryOptions.put("Norway","Norway");
-        countryOptions.put("Poland","Poland");
-        countryOptions.put("Portugal","Portugal");
-        countryOptions.put("Russia","Russia");
-        countryOptions.put("Sweden","Sweden");
-        countryOptions.put("Switzerland","Switzerland");
-        countryOptions.put("Thailand","Thailand");
-        countryOptions.put("Turkey","Turkey");
-        countryOptions.put("Ukraine","Ukraine");
-        countryOptions.put("United Kingdom","United Kingdom");
-        countryOptions.put("USA","USA");*/
+        countryOptions = new LinkedHashMap<>();
+        countryOptions.putAll(createListOfCountries());
     }
 
     public String getTitle() {
-        return title;
+        return "student";
     }
 
 
@@ -129,12 +91,16 @@ public class Student{
         this.email = email;
     }
 
-    public String getCountry() {
-        return country;
+    public String getCountryCode() {
+        return countryCode;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public String getCountry(){
+        return countryOptions.get(countryCode);
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
     }
 
     public String getCity() {
@@ -171,5 +137,14 @@ public class Student{
 
     public LinkedHashMap<String, String> getCountryOptions() {
         return countryOptions;
+    }
+
+    private HashMap<String, String> createListOfCountries(){
+        String[] locales = Locale.getISOCountries();
+        HashMap<String, String> countryList = new HashMap<>();
+        for (String countryCode : locales) {
+            Locale obj = new Locale("", countryCode);
+            countryList.put(obj.getCountry(),obj.getDisplayCountry());
+        }return countryList;
     }
 }

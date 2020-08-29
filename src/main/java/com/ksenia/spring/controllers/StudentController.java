@@ -22,7 +22,6 @@ public class StudentController {
         //add student to the model
         model.addAttribute("student", student);
 
-
         return "student-form";
     }
 

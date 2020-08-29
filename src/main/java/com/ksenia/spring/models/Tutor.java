@@ -1,12 +1,10 @@
 package com.ksenia.spring.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
 import java.util.Date;
 import java.util.LinkedHashMap;
 
 public class Tutor{
-    private final String title = "tutor";
     private String firstName;
     private String lastName;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -21,7 +19,7 @@ public class Tutor{
     private String flatOrHouseNumber;
     private String postcode;
 
-    private LinkedHashMap<String, String> countryOptions;
+    private final LinkedHashMap<String, String> countryOptions;
 
     public Tutor() {
         //hardcoded version: populate some random country options
@@ -63,7 +61,7 @@ public class Tutor{
     }
 
     public String getTitle() {
-        return title;
+        return "tutor";
     }
 
 

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="/resources/css/styles.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet"/>
     <title>Tutor Registration Form</title>
 </head>
 <body class="background-color text-style">

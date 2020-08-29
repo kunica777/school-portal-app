@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Tutor Confirmation Page</title>
-    <link rel="stylesheet" href="/resources/css/styles.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styles.css"/>
 </head>
 <body class="background-color text-style">
 <h3>Dear ${tutor.firstName} ${tutor.lastName}, your ${tutor.title} account was successfully created!</h3>
@@ -19,6 +19,6 @@
 <p>${tutor.street}-${tutor.flatOrHouseNumber}</p>
 <p>${tutor.postcode}</p>
 <hr>
-<p><a class="button" href="/">HOME</a></p>
+<p><a class="button" href="${pageContext.request.contextPath}/">HOME</a></p>
 </body>
 </html>
