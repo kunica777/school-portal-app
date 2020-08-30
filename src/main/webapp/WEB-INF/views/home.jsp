@@ -7,8 +7,7 @@
 <body class="background-color text-style">
 <h2>Welcome to school portal!</h2>
 <hr>
-<p>Click on appropriate button for a registration:</p>
-<a class="button" href="tutor/showForm">I'm a tutor!</a>
-<a class="button" href="student/showForm">I'm a student!</a>
+<p>Register to School Portal by clicking the button</p>
+<a class="button" href="user/showForm">Register!</a>
 </body>
 </html>

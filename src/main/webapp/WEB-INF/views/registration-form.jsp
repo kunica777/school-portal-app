@@ -1,19 +1,23 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Student Registration Form</title>
+    <title>Registration</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styles.css"/>
 </head>
 <body class="background-color text-style">
-<p><b>Student Registration Form</b></p>
+<H2>Registration Form</h2>
 <hr>
-<p>Fields marked with * are required for filling</p>
-<form:form action="processForm" modelAttribute="student">
-    <form:input cssClass="form-width" type="text" path="firstName" placeholder="First name" required="required"/>*
+<p>Fields marked with * are required</p>
+<form:form action="processForm" modelAttribute="user">
+    <form:select path="title">
+        <form:option cssClass="form-width" value="-" label="--Choose Title--"/>
+        <form:options cssClass="form-width" items="${titles}"/>
+    </form:select>
     <br>
-    <form:input cssClass="form-width" type="text" path="lastName" placeholder="Last name" required="required"/>*
+    <form:input  cssClass="form-width" type="text" path="firstName" placeholder="First name" required="required"/>*
+    <br>
+    <form:input cssClass="form-width"  type="text" path="lastName" placeholder="Last name" required="required"/>*
     <br>
     <form:input cssClass="form-width" type="text" path="dateOfBirth" placeholder="dd/mm/yyyy" required="required"/>*
     <br>
@@ -29,21 +33,21 @@
     <br>
     <form:input cssClass="form-width" type="email" path="email" placeholder="Email" required="required"/>*
     <br>
-    <form:select path="countryCode">
+    <form:input cssClass="form-width" type="text" path="phoneNumber" placeholder="Phone number"/>
+    <br>
+    <form:select path="country">
         <form:option cssClass="form-width" value="-" label="--Select Country--"/>
-        <form:options cssClass="form-width" items="${student.countryOptions}"/>
+        <form:options items="${countries}"/>
     </form:select>
     <br>
-    <form:input cssClass="form-width" type="text" path="city" placeholder="City"/>
+    <form:input cssClass="form-width" type="text" path="courseName" placeholder="Name of the course"/>
     <br>
-    <form:input cssClass="form-width" type="text" path="street" placeholder="Street"/>
-    <br>
-    <form:input cssClass="form-width" type="text" path="flatOrHouseNumber" placeholder="Flat/house number"/>
-    <br>
-    <form:input cssClass="form-width" type="text" path="postcode" placeholder="Postcode"/>
+    <form:select path="educationLevel">
+        <form:option  cssStyle="width: 259px" value="-" label="--Education Level--"/>
+        <form:options  items="${educationLevels}"/>
+    </form:select>
     <br>
     <input class="button" type="submit" value="Submit"/>
-
 </form:form>
 
 </body>
