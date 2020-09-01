@@ -7,16 +7,16 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Constraint(validatedBy = PasswordConstraintValidator.class)
+@Constraint(validatedBy = UserInputConstraintValidator.class)
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Password {
+public @interface UserInput {
 
     //define the attributes
-    PasswordValidatorGroup value() default PasswordValidatorGroup.LOWER_UPPER_CASE_NUMBERS;
+    UserInputValidatorGroup value() default UserInputValidatorGroup.NO_SPACES;
 
     //define default error message
-    String message() default "must contain small, capital letters and numbers";
+    String message() default "Invalid input";
 
     //define default groups
     Class<?>[] groups () default {};

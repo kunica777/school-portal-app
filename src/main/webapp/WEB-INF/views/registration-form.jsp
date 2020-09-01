@@ -16,8 +16,10 @@
     </form:select>
     <br>
     <form:input  cssClass="form-width" type="text" path="firstName" placeholder="First name" required="required"/>*
+    <form:errors path="firstName" cssClass="error"/>
     <br>
     <form:input cssClass="form-width"  type="text" path="lastName" placeholder="Last name" required="required"/>*
+    <form:errors path="lastName" cssClass="error"/>
     <br>
     <form:input cssClass="form-width" type="text" path="dateOfBirth" placeholder="dd/mm/yyyy" required="required"/>*
     <br>
@@ -28,13 +30,15 @@
     <form:radiobutton path="gender" value="Transgender" label="Transgender"/>
     <br>
     <form:input cssClass="form-width" type="text" path="login" placeholder="Login name" required="required"/>*
+    <form:errors path="login" cssClass="error"/>
     <br>
-    <form:password cssClass="form-width" path="password" placeholder="Password" required="required"/>*
+    <form:input cssClass="form-width" type="password" path="password" placeholder="Password" required="required"/>*
     <form:errors path="password" cssClass="error"/>
     <br>
     <form:input cssClass="form-width" type="email" path="email" placeholder="Email" required="required"/>*
     <br>
     <form:input cssClass="form-width" type="text" path="phoneNumber" placeholder="Phone number"/>
+    <form:errors path="phoneNumber" cssClass="error"/>
     <br>
     <form:select width="267"  cssStyle="width:267px" path="country">
         <form:option value="-" label="--Select Country--"/>

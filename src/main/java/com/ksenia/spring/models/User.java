@@ -1,32 +1,29 @@
 package com.ksenia.spring.models;
 
-import com.ksenia.spring.validation.Password;
-import com.ksenia.spring.validation.PasswordValidatorGroup;
-import org.hibernate.validator.constraints.Length;
+import com.ksenia.spring.validation.UserInput;
+import com.ksenia.spring.validation.UserInputValidatorGroup;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class User {
     private String title;
+    @UserInput()
     private String firstName;
+    @UserInput()
     private String lastName;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dateOfBirth;
     private String gender;
+    @UserInput()
     private String login;
-    @Password()
+    @UserInput(value = UserInputValidatorGroup.LOWER_UPPER_CASE_DIGITS, message = "a-z + A-Z + 0-9 expected")
     private String password;
     private String email;
+    @UserInput(value = UserInputValidatorGroup.NUMBERS, message = "digits expected")
     private String phoneNumber;
     private String country;
     private String courseName;
     private String educationLevel;
-
     public User() {}
 
     public String getTitle() {
