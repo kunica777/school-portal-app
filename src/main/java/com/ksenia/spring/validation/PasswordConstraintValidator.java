@@ -55,7 +55,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<Password
         }return true;
     }
 
-    //valid if all password contains at list 1 of each (lower case, upper case and decimal), no white space permitted
+    //valid if password contains at list 1 of each (lower case, upper case and decimal), no white space permitted
     private boolean testLowerUpperCaseNumbersPattern(String password){
         int lowerCases = 0;
         int upperCases = 0;
