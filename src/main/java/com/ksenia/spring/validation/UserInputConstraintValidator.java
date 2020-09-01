@@ -75,10 +75,8 @@ public class UserInputConstraintValidator implements ConstraintValidator<UserInp
             }else{
                 return false;
             }
-        }if(lowerCases>0 && upperCases>0 && numbers>0){
-            return true;
         }
-        return false;
+        return lowerCases > 0 && upperCases > 0 && numbers > 0;
     }
 
     //valid if input doesn't contain white spaces, all type of characters and symbols permitted
