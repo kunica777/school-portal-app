@@ -25,7 +25,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<Password
         return result;
     }
 
-    //test lower capitals pattern
+    //valid if all characters from the password are in lower case, no white space permitted
     private boolean testLowerCasePattern(String password){
         char[] chars = password.toCharArray();
         for(char theChar: chars){
@@ -35,7 +35,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<Password
         }return true;
     }
 
-    //test upper capitals pattern
+    //valid if all characters from the password are in upper case, no white space permitted
     private boolean testUppercasePattern(String password){
         char[] chars = password.toCharArray();
         for(char theChar: chars){
@@ -45,7 +45,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<Password
         }return true;
     }
 
-    //test numbers pattern
+    //valid if all characters from the password are decimals, no white space permitted
     private boolean testNumbersPattern(String password){
         char[] chars = password.toCharArray();
         for(char theChar: chars){
@@ -55,7 +55,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<Password
         }return true;
     }
 
-    //test lower upper capitals and numbers pattern
+    //valid if all password contains at list 1 of each (lower case, upper case and decimal), no white space permitted
     private boolean testLowerUpperCaseNumbersPattern(String password){
         int lowerCases = 0;
         int upperCases = 0;
@@ -77,7 +77,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<Password
         return false;
     }
 
-    //test no spaces pattern
+    //valid if password doesn't contain white spaces, all type of characters and symbols permitted
     private boolean testNoSpacesPattern(String password){
         char[] chars = password.toCharArray();
         for(char theChar: chars){
