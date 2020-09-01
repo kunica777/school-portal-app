@@ -15,10 +15,10 @@ public class PasswordConstraintValidator implements ConstraintValidator<Password
     public boolean isValid(String yourPassword, ConstraintValidatorContext constraintValidatorContext) {
        boolean result=false;
         switch(passwordPattern){
-            case LOWER_CASE: result = testLowerCapitalsPattern(yourPassword); break;
-            case UPPER_CASE: result = testUpperCapitalsPattern(yourPassword); break;
+            case LOWER_CASE: result = testLowerCasePattern(yourPassword); break;
+            case UPPER_CASE: result = testUppercasePattern(yourPassword); break;
             case NUMBERS: result = testNumbersPattern(yourPassword); break;
-            case LOWER_UPPER_CASE_NUMBERS: result = testLowerUpperCapitalsNumbersPattern(yourPassword); break;
+            case LOWER_UPPER_CASE_NUMBERS: result = testLowerUpperCaseNumbersPattern(yourPassword); break;
             case NO_SPACES: result = testNoSpacesPattern(yourPassword); break;
             default: break;
         }
@@ -26,7 +26,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<Password
     }
 
     //test lower capitals pattern
-    private boolean testLowerCapitalsPattern(String password){
+    private boolean testLowerCasePattern(String password){
         char[] chars = password.toCharArray();
         for(char theChar: chars){
             if(!(theChar>='a' && theChar<='z')){
@@ -36,7 +36,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<Password
     }
 
     //test upper capitals pattern
-    private boolean testUpperCapitalsPattern(String password){
+    private boolean testUppercasePattern(String password){
         char[] chars = password.toCharArray();
         for(char theChar: chars){
             if(!(theChar>='A' && theChar<='Z')){
@@ -56,7 +56,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<Password
     }
 
     //test lower upper capitals and numbers pattern
-    private boolean testLowerUpperCapitalsNumbersPattern(String password){
+    private boolean testLowerUpperCaseNumbersPattern(String password){
         int lowerCases = 0;
         int upperCases = 0;
         int numbers =0;
