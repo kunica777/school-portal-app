@@ -1,8 +1,14 @@
 package com.ksenia.spring.models;
 
-import com.ksenia.spring.constants.EducationLevel;
+import com.ksenia.spring.validation.Password;
+import com.ksenia.spring.validation.PasswordValidatorGroup;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class User {
@@ -13,6 +19,7 @@ public class User {
     private Date dateOfBirth;
     private String gender;
     private String login;
+    @Password()
     private String password;
     private String email;
     private String phoneNumber;

@@ -4,14 +4,26 @@ import com.ksenia.spring.constants.Countries;
 import com.ksenia.spring.constants.EducationLevel;
 import com.ksenia.spring.constants.Title;
 import com.ksenia.spring.models.User;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import javax.validation.Valid;
+
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+    @InitBinder
+    public void initBinder(WebDataBinder dataBinder){
+        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+    }
 
     @RequestMapping("/showForm")
     public String showForm(Model model){
@@ -30,8 +42,14 @@ public class UserController {
     }
 
     @RequestMapping("/processForm")
-    public String processForm(@ModelAttribute("user") User user){
-        System.out.println("New user was successfully created");
-        return "registration-confirmation";
+    public String processForm(@Valid @ModelAttribute("user") User user,
+                              BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            System.out.println("Invalid input");
+            return "registration-form";
+        }else{
+            System.out.println("New user was successfully created");
+            return "registration-confirmation";
+        }
     }
 }

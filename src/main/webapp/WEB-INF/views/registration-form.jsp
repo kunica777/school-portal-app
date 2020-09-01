@@ -10,9 +10,9 @@
 <hr>
 <p>Fields marked with * are required</p>
 <form:form action="processForm" modelAttribute="user">
-    <form:select path="title">
-        <form:option cssClass="form-width" value="-" label="--Choose Title--"/>
-        <form:options cssClass="form-width" items="${titles}"/>
+    <form:select width="267"  cssStyle="width:267px" path="title">
+        <form:option value="-" label="--Choose Title--"/>
+        <form:options items="${titles}"/>
     </form:select>
     <br>
     <form:input  cssClass="form-width" type="text" path="firstName" placeholder="First name" required="required"/>*
@@ -30,21 +30,22 @@
     <form:input cssClass="form-width" type="text" path="login" placeholder="Login name" required="required"/>*
     <br>
     <form:password cssClass="form-width" path="password" placeholder="Password" required="required"/>*
+    <form:errors path="password" cssClass="error"/>
     <br>
     <form:input cssClass="form-width" type="email" path="email" placeholder="Email" required="required"/>*
     <br>
     <form:input cssClass="form-width" type="text" path="phoneNumber" placeholder="Phone number"/>
     <br>
-    <form:select path="country">
-        <form:option cssClass="form-width" value="-" label="--Select Country--"/>
+    <form:select width="267"  cssStyle="width:267px" path="country">
+        <form:option value="-" label="--Select Country--"/>
         <form:options items="${countries}"/>
     </form:select>
     <br>
     <form:input cssClass="form-width" type="text" path="courseName" placeholder="Name of the course"/>
     <br>
-    <form:select path="educationLevel">
-        <form:option  cssStyle="width: 259px" value="-" label="--Education Level--"/>
-        <form:options  items="${educationLevels}"/>
+    <form:select width="267"  cssStyle="width:267px" path="educationLevel">
+        <form:option value="-" label="--Education Level--"/>
+        <form:options items="${educationLevels}"/>
     </form:select>
     <br>
     <input class="button" type="submit" value="Submit"/>

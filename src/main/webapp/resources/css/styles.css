@@ -22,3 +22,9 @@
 .form-width{
     width: 259px;
 }
+
+.error{
+    color: #eac362;
+    font-style: italic;
+}
+
