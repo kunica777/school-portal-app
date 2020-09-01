@@ -12,7 +12,7 @@
 <form:form action="processForm" modelAttribute="user">
     <form:select width="267"  cssStyle="width:267px" path="title">
         <form:option value="-" label="--Choose Title--"/>
-        <form:options items="${titles}"/>
+        <form:options items="${user.titlesList}"/>
     </form:select>
     <br>
     <form:input  cssClass="form-width" type="text" path="firstName" placeholder="First name" required="required"/>*
@@ -42,14 +42,14 @@
     <br>
     <form:select width="267"  cssStyle="width:267px" path="country">
         <form:option value="-" label="--Select Country--"/>
-        <form:options items="${countries}"/>
+        <form:options items="${user.countriesList}"/>
     </form:select>
     <br>
     <form:input cssClass="form-width" type="text" path="courseName" placeholder="Name of the course"/>
     <br>
     <form:select width="267"  cssStyle="width:267px" path="educationLevel">
         <form:option value="-" label="--Education Level--"/>
-        <form:options items="${educationLevels}"/>
+        <form:options items="${user.levelsList}"/>
     </form:select>
     <br>
     <input class="button" type="submit" value="Submit"/>

@@ -1,11 +1,16 @@
 package com.ksenia.spring.models;
 
+import com.ksenia.spring.constants.Countries;
+import com.ksenia.spring.constants.EducationLevel;
+import com.ksenia.spring.constants.Title;
 import com.ksenia.spring.validation.UserInput;
 import com.ksenia.spring.validation.UserInputValidatorGroup;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
+import java.util.LinkedList;
 
 public class User {
+    //user attributes
     private String title;
     @UserInput()
     private String firstName;
@@ -24,7 +29,17 @@ public class User {
     private String country;
     private String courseName;
     private String educationLevel;
-    public User() {}
+
+    //external collections attributes
+    private final LinkedList<String> titlesList;
+    private final LinkedList<String> countriesList;
+    private final LinkedList<String> levelsList;
+
+    public User() {
+        titlesList = Title.getAllTitles();
+        countriesList = new Countries().getCountries();
+        levelsList = EducationLevel.getAllLevels();
+    }
 
     public String getTitle() {
         return title;
@@ -120,5 +135,17 @@ public class User {
 
     public void setEducationLevel(String educationLevel) {
         this.educationLevel = educationLevel;
+    }
+
+    public LinkedList<String> getTitlesList() {
+        return titlesList;
+    }
+
+    public LinkedList<String> getCountriesList() {
+        return countriesList;
+    }
+
+    public LinkedList<String> getLevelsList() {
+        return levelsList;
     }
 }
