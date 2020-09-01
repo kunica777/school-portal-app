@@ -11,9 +11,11 @@ public class UserInputConstraintValidator implements ConstraintValidator<UserInp
         userInputPattern = userInput.value();
     }
 
+    //import new patterns for user input validation here!
     @Override
     public boolean isValid(String yourInput, ConstraintValidatorContext constraintValidatorContext) {
        boolean result=false;
+       if(yourInput != null){
         switch(userInputPattern){
             case LOWER_CASE: result = testLowerCasePattern(yourInput); break;
             case UPPER_CASE: result = testUppercasePattern(yourInput); break;
@@ -21,7 +23,9 @@ public class UserInputConstraintValidator implements ConstraintValidator<UserInp
             case LOWER_UPPER_CASE_DIGITS: result = testLowerUpperCaseDigitsPattern(yourInput); break;
             case NO_SPACES: result = testNoSpacesPattern(yourInput); break;
             default: break;
-        }
+        }}else{
+           result=true;
+       }
         return result;
     }
 
