@@ -40,6 +40,7 @@ public class UserController {
             System.out.println("Invalid input");
             return "registration-form";
         }else{
+
             System.out.println("New user was successfully created");
             return "registration-confirmation";
         }
